@@ -1,0 +1,30 @@
+header {
+  max-width: 1440px;
+  height: 120px;
+  background-color: rgb(239, 136, 50);
+}
+
+header img{
+    height: 64px;
+}
+
+.section-wrapper {
+  width: 100%;
+  background-color: rgb(239, 136, 50);
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+main {
+    max-width: 1440px;
+  
+}
+
+footer {
+  margin-top: auto;
+  max-width: 1440px;
+  background-color: rgb(239, 136, 50);
+  height: 120px;
+}
