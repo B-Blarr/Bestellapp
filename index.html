@@ -16,53 +16,62 @@
   </head>
   <body>
     <div class="section-wrapper">
-      <header><img src="./assets/img/logo.svg" alt="logo"></header>
+      <header><img src="./assets/img/logo.svg" alt="logo" /></header>
     </div>
     <!-- Wrapper um alles inkl Warenkorb -->
     <div class="main-wrapper">
-        <main>
+      <main>
         <!-- Wrapper um Inhalt ohne den Warenkorb herum -->
-      <div class="inner-wrapper">
-        <!-- Großes Bild unterm header  -->
-        <aside class="image-area">
-          <div class="brand-image"><img src="./assets/img/logo_dolce_vita.png" alt="Logo_Dolce_Vita"></div>
-        </aside>
-        <!-- Rundes Bild -->
-        <aside class="brand-image"></aside>
-        <section class="headline-section">
-          <h1>Pizzeria Dolce Vita</h1>
+        <div class="inner-wrapper">
+          <!-- Großes Bild unterm header  -->
+          <aside class="image-area">
+            <div class="brand-image">
+              <img
+                src="./assets/img/logo_dolce_vita.png"
+                alt="Logo_Dolce_Vita"
+              />
+            </div>
+          </aside>
+          <section class="headline-section">
+            <h1>Pizzeria Dolce Vita</h1>
+            <p class="evaluation">Bewertung (4,8 von 5 Sternen)</p>
+          </section>
+          <nav class="dish-menu">
+            <a class="menu" href="#main-dishes">Neapolitanische Pizzen</a
+          ><a class="menu" href="#desserts">Desserts</a
+          ><a class="menu" href="#drinks">Getränke</a>
+          </nav>
+          
+          <section class="main-section">
+            <h2>Neapolitanische Pizzen</h2>
+            <article id="main-dishes"></article>
+            <h2>Desserts</h2>
+            <article id="desserts"></article>
+            <h2>Getränke</h2>
+            <article id="drinks"></article>
+          </section>
+        </div>
+        <section class="basket">
+          <h2>Warenkorb</h2>
+          <div class="dividing-line"></div>
+          <div class="food-order"></div>
+          <div class="dividing-line"></div>
+          <table>
+            <tr>
+              <td>Zwischensumme</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Lieferkosten</td>
+              <td>5,00 €</td>
+            </tr>
+            <tr>
+              <td>Gesamt</td>
+              <td></td>
+            </tr>
+          </table>
+          <button id="order-button">Bestellen</button>
         </section>
-        <aside class="...WahlArea"></aside>
-        <section class="main-section">
-          <h2>Neapolitanische Pizzen</h2>
-          <article class="main-dishes"></article>
-          <h2>Desserts</h2>
-          <article class="desserts"></article>
-          <h2>Getränke</h2>
-          <article class="drinks"></article>
-        </section>
-      </div>
-      <section class="basket">
-        <h2>Warenkorb</h2>
-        <div class="dividing-line"></div>
-        <div class="food-order"></div>
-        <div class="dividing-line"></div>
-        <table>
-          <tr>
-            <td>Zwischensumme</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Lieferkosten</td>
-            <td>5,00 €</td>
-          </tr>
-          <tr>
-            <td>Gesamt</td>
-            <td></td>
-          </tr>
-        </table>
-        <button id="order-button">Bestellen</button>
-      </section>
       </main>
     </div>
     <div class="section-wrapper">

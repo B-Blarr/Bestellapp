@@ -54,6 +54,40 @@ main {
   width: 110px;
 }
 
+.headline-section{
+  padding-left: 16px;
+  padding-top: 32px;
+}
+
+h1{
+  font-size: 36px;
+  padding-bottom: 24px;
+}
+
+.evaluation{
+  color: rgb(239, 136, 50);
+  padding-bottom: 16px;
+}
+
+.dish-menu{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-left: 16px;
+}
+
+.menu{
+  font-size: 18px;
+  color: black;
+}
+
+
+
+
+
+
+
+
 footer {
   margin-top: auto;
   max-width: 1440px;

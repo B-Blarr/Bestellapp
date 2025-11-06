@@ -6,4 +6,5 @@
     position: relative;
     object-fit: cover;
     font-family: 'Roboto';
+    list-style-type: none;
 }
