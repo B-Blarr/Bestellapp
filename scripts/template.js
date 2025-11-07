@@ -6,7 +6,8 @@ function renderDishesTemplate(i) {
             <p>${dishes[0]["Neapolitanische Pizzen"][i].description}<p/>
            </div>
            <div>
-            <button onclick=addToBasket(i) class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
+            <button onclick="addToBasket('${dishes[0]["Neapolitanische Pizzen"][i].name}', ${dishes[0]["Neapolitanische Pizzen"][i].price})" 
+            class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
            </div>
           </section>`;
 }
@@ -19,7 +20,8 @@ function renderDessertsTemplate(i) {
              <p>${dishes[0].Desserts[i].description}<p/>
             </div>
             <div>
-             <button onclick=addToBasket(i) class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
+             <button onclick="addToBasket('${dishes[0].Desserts[i].name}', ${dishes[0].Desserts[i].price})" 
+             class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
             </div>
           </section>`;
 }
@@ -32,7 +34,8 @@ function renderDrinksTemplate(i) {
             <p>${dishes[0].Getränke[i].description}<p/>
            </div>
            <div>
-            <button onclick="addToBasket('${dishes[0].Getränke[i].name}', ${dishes[0].Getränke[i].price} )" class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
+            <button onclick="addToBasket('${dishes[0].Getränke[i].name}', ${dishes[0].Getränke[i].price} )" 
+            class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
            </div>
           </section>`;
 }
