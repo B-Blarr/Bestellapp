@@ -54,22 +54,22 @@ const dishes = [
 
         "Getränke": [
             {
-                "name": "Coca-Cola 0,33l (EINWEG)",
+                "name": "Coca-Cola 0,33l",
                 "price": 2.00,
                 "description": "0,33l, 6,06 €/1l, enthält Koffein (10mg/100ml)"
             },
             {
-                "name": "Fanta Orange 0,33l (EINWEG)",
+                "name": "Fanta Orange 0,33l",
                 "price": 2.00,
                 "description": "0,33l, 6,06 €/1l"
             },
             {
-                "name": "Sprite 0,33l (EINWEG)",
+                "name": "Sprite 0,33l",
                 "price": 2.00,
                 "description": "0,33l, 6,06 €/1l"
             },
             {
-                "name": "Red Bull Energy Drink 0,25l (EINWEG)",
+                "name": "Red Bull Energy Drink 0,25l",
                 "price": 2.50,
                 "description": "0,25l, 10,00 €/1l, enthält Koffein (32mg/100ml)"
             }

@@ -164,12 +164,16 @@ cursor: pointer;
 }
 
 .dishes-add-button img{
-width: 32px;
+width: 40px;
 }
 
 .dividing-area{
   min-height: 16px;
   width: 100%;
+}
+
+.foot-order{
+  height: 20px;
 }
 
 footer {
