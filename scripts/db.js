@@ -1,5 +1,3 @@
-
-
 const dishes = [
     {
         "Neapolitanische Pizzen":
@@ -53,7 +51,6 @@ const dishes = [
                 "description": "mit Früchten der Saison"
             }
         ],
-
 
         "Getränke": [
             {
