@@ -27,17 +27,5 @@ function renderDesserts(){
 
 function addToBasket(name, price) {
    let refOrder = document.getElementsByClassName("food-order");
-   let refPrice = document.getElementsByClassName("food-price");
-    refOrder[0].innerHTML += addNametoBasketTemplate(name);
-    refPrice[0].innerHTML += addPricetoBasketTemplate(price).replace(".",",");
-}
-
-function addNametoBasketTemplate(name){
-    return `<p>${name}</p>
-    `
-}
-
-function addPricetoBasketTemplate(price) {
-    return `<p>${price.toFixed(2)}</p>
-    `
+    refOrder[0].innerHTML += addDishtoBasketTemplate(name, price);
 }
