@@ -7,14 +7,14 @@ renderDrinks();
 function renderDishes() {
     let refArticle = document.getElementById("main-dishes"); 
     for (let i = 0; i < dishes[0]["Neapolitanische Pizzen"].length; i++) {
-        refArticle.innerHTML += renderDishesTemplate(i).replaceAll(".",",");
+        refArticle.innerHTML += renderDishesTemplate(i).replace(".",",");
     }
 }
 
 function renderDesserts(){
     let refArticle = document.getElementById("desserts");
     for (let i = 0; i < dishes[0].Desserts.length; i++) {
-        refArticle.innerHTML += renderDessertsTemplate(i).replaceAll(".",",");
+        refArticle.innerHTML += renderDessertsTemplate(i).replace(".",",");
     }
 }
 

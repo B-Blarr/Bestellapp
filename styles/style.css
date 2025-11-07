@@ -3,6 +3,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100vh;
+  background: rgb(226, 220, 220);
 }
 
 header {
@@ -95,8 +96,36 @@ h1 {
   padding-top: 32px;
 }
 
+#main-dishes{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#desserts{
+display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#drinks{
+display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 h2 {
-  font-size: 24px;
+  font-size: 28px;
+}
+
+.rendered-dishes{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+h4{
+font-size: 18px;
 }
 
 .basket-section {
@@ -116,6 +145,33 @@ h3 {
   font-size: 24px;
   text-align: center;
 }
+
+.dish-article{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  background: white;
+  border-radius: 16px;
+  padding: 0 16px;
+}
+
+.dishes-add-button{
+background: white;
+border: none;
+cursor: pointer;
+}
+
+.dishes-add-button img{
+width: 32px;
+}
+
+.dividing-area{
+  min-height: 16px;
+  width: 100%;
+}
+
 footer {
   margin-top: auto;
   max-width: 1440px;
