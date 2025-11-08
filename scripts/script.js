@@ -42,7 +42,12 @@ function addToCounter(type, i) {
 function minusToCounter(type, i) {
     refCounter = document.getElementById(`dish-counter-${type}-${i}`);
     refCounter.textContent --;
-    // if (refCounter < 1) {
-    //     deleteDish();
-    // }
+    if (refCounter.textContent < 1) {
+        deleteDish(type, i);
+    }
+}
+
+function deleteDish(type, i) {
+    refDish = document.getElementsByClassName(`dish-summary-${type}-${i}`)[0];
+    refDish.innerHTML = "";
 }
