@@ -38,3 +38,11 @@ function addToCounter(type, i) {
     refCounter = document.getElementById(`dish-counter-${type}-${i}`);
     refCounter.textContent ++;
 }
+
+function minusToCounter(type, i) {
+    refCounter = document.getElementById(`dish-counter-${type}-${i}`);
+    refCounter.textContent --;
+    // if (refCounter < 1) {
+    //     deleteDish();
+    // }
+}

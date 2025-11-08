@@ -42,14 +42,18 @@ function renderDrinksTemplate(i) {
 
 function addDishtoBasketTemplate(type, name, price, i){
 
+    if (document.getElementById(`dish-counter-${type}-${i}`))  {
+        return "";
+    }else
+
    return `
   <div class="dish-summary basket-first-part">
      <span>${name}</span> 
      <div class="basket-second-part">
      <div class="basket-counter-price"></div>
-     <button class="basket-minus-button"></button>
+     <button onclick="minusToCounter('${type}', ${i})" class="basket-minus-button"></button>
      <span id="dish-counter-${type}-${i}"></span> 
-     <button onclick="addToCounter-(${type}-${i})" class="basket-plus-button"></button>
+     <button onclick="addToCounter('${type}', ${i})" class="basket-plus-button"></button>
      <span class="dish-price">${price.toFixed(2).replace(".",",")}</span>
      <button class="delete-button"></button>   
   </div>
