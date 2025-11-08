@@ -48,9 +48,12 @@ function addDishtoBasketTemplate(name, price){
      <div class="basket-counter-price"></div>
      <button class="basket-minus-button"></button>
      <li class="dish-counter"></li> 
-     <button class="basket-plus-button"></button>
+     <button onclick="addToCounter()" class="basket-plus-button"></button>
      <li class="dish-price">${price.toFixed(2).replace(".",",")}</li>
      <button class="delete-button"></button>   
   </div>
 ` 
 }
+/*html*/`
+    
+`

@@ -1,3 +1,5 @@
+let refCounter = 0;
+
 function renderAll(){
 renderDishes();
 renderDesserts();
@@ -24,8 +26,15 @@ function renderDesserts(){
         refArticle.innerHTML += renderDrinksTemplate(i).replace(".",",");
     }
  }
+ 
 
 function addToBasket(name, price) {
    let refOrder = document.getElementsByClassName("food-order");
     refOrder[0].innerHTML += addDishtoBasketTemplate(name, price);
+}
+
+function addToCounter() {
+   
+    refCounter = document.getElementsByClassName("dish-counter");
+    refCounter[0].innerHTML++;
 }
