@@ -6,7 +6,7 @@ function renderDishesTemplate(i) {
             <p>${dishes[0]["Neapolitanische Pizzen"][i].description}<p/>
            </div>
            <div>
-            <button onclick="addToBasket('${dishes[0]["Neapolitanische Pizzen"][i].name}', ${dishes[0]["Neapolitanische Pizzen"][i].price})" 
+            <button onclick="addToBasket('pizza', '${dishes[0]["Neapolitanische Pizzen"][i].name}', ${dishes[0]["Neapolitanische Pizzen"][i].price}, ${i})" 
             class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
            </div>
           </section>`;
@@ -20,7 +20,7 @@ function renderDessertsTemplate(i) {
              <p>${dishes[0].Desserts[i].description}<p/>
             </div>
             <div>
-             <button onclick="addToBasket('${dishes[0].Desserts[i].name}', ${dishes[0].Desserts[i].price})" 
+             <button onclick="addToBasket('dessert', '${dishes[0].Desserts[i].name}', ${dishes[0].Desserts[i].price}, ${i})" 
              class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
             </div>
           </section>`;
@@ -34,26 +34,24 @@ function renderDrinksTemplate(i) {
             <p>${dishes[0].Getränke[i].description}<p/>
            </div>
            <div>
-            <button onclick="addToBasket('${dishes[0].Getränke[i].name}', ${dishes[0].Getränke[i].price} )" 
+            <button onclick="addToBasket('drinks', '${dishes[0].Getränke[i].name}', ${dishes[0].Getränke[i].price}, ${i} )" 
             class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
            </div>
           </section>`;
 }
 
-function addDishtoBasketTemplate(name, price){
+function addDishtoBasketTemplate(type, name, price, i){
+
    return `
   <div class="dish-summary basket-first-part">
-     <div>${name}</div> 
+     <span>${name}</span> 
      <div class="basket-second-part">
      <div class="basket-counter-price"></div>
      <button class="basket-minus-button"></button>
-     <li class="dish-counter"></li> 
-     <button onclick="addToCounter()" class="basket-plus-button"></button>
-     <li class="dish-price">${price.toFixed(2).replace(".",",")}</li>
+     <span id="dish-counter-${type}-${i}"></span> 
+     <button onclick="addToCounter-(${type}-${i})" class="basket-plus-button"></button>
+     <span class="dish-price">${price.toFixed(2).replace(".",",")}</span>
      <button class="delete-button"></button>   
   </div>
 ` 
 }
-/*html*/`
-    
-`

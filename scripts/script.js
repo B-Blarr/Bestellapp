@@ -27,14 +27,14 @@ function renderDesserts(){
     }
  }
  
-
-function addToBasket(name, price) {
-   let refOrder = document.getElementsByClassName("food-order");
-    refOrder[0].innerHTML += addDishtoBasketTemplate(name, price);
+function addToBasket(type, name, price, i) {
+   let refOrder = document.getElementsByClassName("food-order")[0];
+    refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
+    addToCounter(type, i)
 }
 
-function addToCounter() {
+function addToCounter(type, i) {
    
-    refCounter = document.getElementsByClassName("dish-counter");
-    refCounter[0].innerHTML++;
+    refCounter = document.getElementById(`dish-counter-${type}-${i}`);
+    refCounter.textContent ++;
 }
