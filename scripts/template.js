@@ -58,8 +58,10 @@ function addDishtoBasketTemplate(type, name, price, i) {
      <button onclick="minusToCounter('${type}', ${i})" class="basket-minus-button"></button>
      <span id="dish-counter-${type}-${i}"></span> 
      <button onclick="addToCounter('${type}', ${i})" class="basket-plus-button"></button>
-     <span class="dish-price">${price.toFixed(2).replace(".", ",")}</span>
+    
+     <span class="dish-price-${type}-${i}">${price.toFixed(2).replace(".", ",")}</span>
      <button onclick="deleteDish('${type}', ${i})" class="delete-button"></button>   
   </div>
 `;
 }
+//  Funktion price * counter

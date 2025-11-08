@@ -30,7 +30,8 @@ function renderDesserts(){
 function addToBasket(type, name, price, i) {
    let refOrder = document.getElementsByClassName("food-order")[0];
     refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
-    addToCounter(type, i)
+    addToCounter(type, i);
+    calcDishPrice(type, i);
 }
 
 function addToCounter(type, i) {
@@ -51,3 +52,27 @@ function deleteDish(type, i) {
     refDish = document.getElementsByClassName(`dish-summary-${type}-${i}`)[0];
     refDish.innerHTML = "";
 }
+
+// Funktion für den Preis zwischen den Button, der angepasst wird bei + und - und großen Hinzufügen Button
+function calcDishPrice(type, i) {
+    let counterRef = document.getElementById(`dish-counter-${type}-${i}`).innerText;
+    let counterRefNumber = Number.parseFloat(counterRef);
+    let multipliedPriceRef = document.getElementsByClassName(`dish-price-${type}-${i}`)[0];
+    multipliedPriceRef.innerText = "";
+    let priceForOne = getPrice(type, i);
+    let calcPrice = counterRefNumber * priceForOne;
+    multipliedPriceRef.innerText += calcPrice.toFixed(2).replace(".", ",");
+}
+
+function getPrice(type, i) {
+    let category = getCategoryKey(type);
+    return actualPrice = dishes[0][category][i].price;     
+    }
+
+
+function getCategoryKey(type) {
+  if (type === "pizza")   return "Neapolitanische Pizzen";
+  if (type === "dessert") return "Desserts";
+  if (type === "drinks")  return "Getränke";
+}
+
