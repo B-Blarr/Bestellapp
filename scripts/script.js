@@ -38,11 +38,13 @@ function addToCounter(type, i) {
    
     refCounter = document.getElementById(`dish-counter-${type}-${i}`);
     refCounter.textContent ++;
+    calcDishPrice(type, i);
 }
 
 function minusToCounter(type, i) {
     refCounter = document.getElementById(`dish-counter-${type}-${i}`);
     refCounter.textContent --;
+    calcDishPrice(type, i);
     if (refCounter.textContent < 1) {
         deleteDish(type, i);
     }
@@ -69,10 +71,14 @@ function getPrice(type, i) {
     return actualPrice = dishes[0][category][i].price;     
     }
 
-
 function getCategoryKey(type) {
   if (type === "pizza")   return "Neapolitanische Pizzen";
   if (type === "dessert") return "Desserts";
   if (type === "drinks")  return "Getränke";
 }
+
+// Zwischensumme berechnen Alle dish-price-${type}-${i}`)[0] addieren
+// Evtl preis in addto counter und minustocounter mitgeben und von dort direkt Zwischensumme addiere oder subtrahiere
+// Bei addtobasket auch gleich zwischensumme von dort addiere
+// Funktion für Zwischensumme mache bei der einfach die übergegebenen Werte addiert werden
 
