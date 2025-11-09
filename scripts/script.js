@@ -42,18 +42,19 @@ function addToCounter(type, price, i) {
   addPriceToSubtotal(price);
 }
 
-function minusToCounter(type, i) {
+function minusToCounter(type, price, i) {
   refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent--;
   calcDishPrice(type, i);
+  subtractPriceOfSubtotal(price);
   if (refCounter.textContent < 1) {
     deleteDish(type, i);
   }
 }
 
 function deleteDish(type, i) {
-  refDish = document.getElementsByClassName(`dish-summary-${type}-${i}`)[0];
-  refDish.innerHTML = "";
+  refDish = document.getElementById(`dish-summary-${type}-${i}`);
+  refDish.remove(`dish-summary-${type}-${i}`);
 }
 
 // Funktion für den Preis zwischen den Button, der angepasst wird bei + und - und großen Hinzufügen Button
@@ -92,4 +93,10 @@ function addPriceToSubtotal(price) {
   let refSubtotal = document.getElementById("subtotal");
   refSubtotal.innerText = SubtotalNumber.toFixed(2).replace(".", ",");
 }
-// .toFixed(2).replace(".", ",")
+
+function subtractPriceOfSubtotal(price) {
+    SubtotalNumber = SubtotalNumber - price;
+  let refSubtotal = document.getElementById("subtotal");
+  refSubtotal.innerText = SubtotalNumber.toFixed(2).replace(".", ",");
+}
+
