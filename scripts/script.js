@@ -1,4 +1,5 @@
 let refCounter = 0;
+let SubtotalNumber = 0;
 
 function renderAll(){
 renderDishes();
@@ -32,6 +33,7 @@ function addToBasket(type, name, price, i) {
     refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
     addToCounter(type, i);
     calcDishPrice(type, i);
+    addPriceToSubtotal(price);
 }
 
 function addToCounter(type, i) {
@@ -82,3 +84,8 @@ function getCategoryKey(type) {
 // Bei addtobasket auch gleich zwischensumme von dort addiere
 // Funktion für Zwischensumme mache bei der einfach die übergegebenen Werte addiert werden
 
+function addPriceToSubtotal(price) {
+    SubtotalNumber = SubtotalNumber + price;
+    let refSubtotal = document.getElementById("subtotal");
+    refSubtotal.innerText = SubtotalNumber.toFixed(2).replace(".", ",");
+}
