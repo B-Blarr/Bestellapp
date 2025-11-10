@@ -12,7 +12,7 @@ function renderAll() {
 function updateSubtotal() {
   const subtotalCell = document.getElementById("subtotal");
   if (subtotal <= 0) {
-    subtotal = 0;
+    // subtotal = 0;
     subtotalCell.innerText = "0,00 €";
   } else {
     subtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
@@ -53,6 +53,7 @@ function addToCounter(type, price, i) {
   calcDishPrice(type, i);
   subtotal += price;
   updateSubtotal();
+  updateTotalPrice();
 }
 
 function minusToCounter(type, price, i) {
@@ -62,42 +63,37 @@ function minusToCounter(type, price, i) {
   subtotal -= price;
 //   if (subtotal < 0) subtotal = 0;
   updateSubtotal();
+  updateTotalPrice();
   if (refCounter.textContent == 0) {
     deleteDish(type, price, i);
   }
 }
 
 function deleteDish(type, price, i) {
-  const counterDish = document.getElementById(`dish-counter-${type}-${i}`);
+  const counterRef = document.getElementById(`dish-counter-${type}-${i}`);
   let count = 0;
-  if (counterDish) {
-    count = Number(counterDish.innerText);
+  if (counterRef) {
+    count = Number(counterRef.innerText);
   }
-
   if (count > 0) {
     subtotal -= count * price;
     // if (subtotal < 0) subtotal = 0;
     updateSubtotal();
+    updateTotalPrice();
   }
-
-  const dishDiv = document.getElementById(`dish-summary-${type}-${i}`);
-  if (dishDiv) {
-    dishDiv.remove();
+  const dishSummary = document.getElementById(`dish-summary-${type}-${i}`);
+  if (dishSummary) {
+    dishSummary.remove();
   }
 }
 
-// Funktion für den Preis zwischen den Button, der angepasst wird bei + und - und großen Hinzufügen Button
 function calcDishPrice(type, i) {
-  let counterRef = document.getElementById(
-    `dish-counter-${type}-${i}`
-  ).innerText;
-  let counterRefNumber = Number.parseFloat(counterRef);
-  let multipliedPriceRef = document.getElementsByClassName(
-    `dish-price-${type}-${i}`
-  )[0];
+  const counterRef = document.getElementById(`dish-counter-${type}-${i}`).innerText;
+  const counterRefNumber = Number.parseFloat(counterRef);
+  let multipliedPriceRef = document.getElementsByClassName(`dish-price-${type}-${i}`)[0];
   multipliedPriceRef.innerText = "";
-  let priceForOne = getPrice(type, i);
-  let calcPrice = counterRefNumber * priceForOne;
+  const priceForOne = getPrice(type, i);
+  const calcPrice = counterRefNumber * priceForOne;
   multipliedPriceRef.innerText += calcPrice.toFixed(2).replace(".", ",");
 }
 
@@ -112,7 +108,16 @@ function getCategoryKey(type) {
   if (type === "drinks") return "Getränke";
 }
 
-// Zwischensumme berechnen Alle dish-price-${type}-${i}`)[0] addieren
-// Evtl preis in addto counter und minustocounter mitgeben und von dort direkt Zwischensumme addiere oder subtrahiere
-// Bei addtobasket auch gleich zwischensumme von dort addiere
-// Funktion für Zwischensumme mache bei der einfach die übergegebenen Werte addiert werden
+function updateTotalPrice() {
+    const refTotalPrice = document.getElementById("total-price");
+    const subtotalCell = document.getElementById("subtotal").innerText.replace(",",".");
+    let subtotalCellNum = Number.parseFloat(subtotalCell);
+    let newPrice = subtotalCellNum + 5;
+if (subtotalCellNum == 0){
+    refTotalPrice.innerText = "0,00 €";
+    }else
+{
+    refTotalPrice.innerText = newPrice.toFixed(2).replace(".", ",");
+    refTotalPrice.innerText = refTotalPrice.innerText + " €";
+    }
+}
