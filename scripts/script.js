@@ -1,4 +1,3 @@
-let SubtotalNumber = 0;
 
 let subtotal = 0;
 
@@ -12,7 +11,6 @@ function renderAll() {
 function updateSubtotal() {
   const subtotalCell = document.getElementById("subtotal");
   if (subtotal <= 0) {
-    // subtotal = 0;
     subtotalCell.innerText = "0,00 €";
   } else {
     subtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
@@ -44,7 +42,6 @@ function addToBasket(type, name, price, i) {
   const refOrder = document.getElementsByClassName("food-order")[0];
   refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
   addToCounter(type, price, i);
-  //   calcDishPrice(type, i);
 }
 
 function addToCounter(type, price, i) {
@@ -61,7 +58,7 @@ function minusToCounter(type, price, i) {
   refCounter.textContent--;
   calcDishPrice(type, i);
   subtotal -= price;
-//   if (subtotal < 0) subtotal = 0;
+  //   if (subtotal < 0) subtotal = 0;
   updateSubtotal();
   updateTotalPrice();
   if (refCounter.textContent == 0) {
@@ -98,7 +95,7 @@ function calcDishPrice(type, i) {
 }
 
 function getPrice(type, i) {
-  let category = getCategoryKey(type);
+  const category = getCategoryKey(type);
   return dishes[0][category][i].price;
 }
 
@@ -109,15 +106,14 @@ function getCategoryKey(type) {
 }
 
 function updateTotalPrice() {
-    const refTotalPrice = document.getElementById("total-price");
-    const subtotalCell = document.getElementById("subtotal").innerText.replace(",",".");
-    let subtotalCellNum = Number.parseFloat(subtotalCell);
-    let newPrice = subtotalCellNum + 5;
-if (subtotalCellNum == 0){
+  const refTotalPrice = document.getElementById("total-price");
+  const subtotalCell = document.getElementById("subtotal").innerText.replace(",", ".");
+  const subtotalCellNum = Number.parseFloat(subtotalCell);
+  const newPrice = subtotalCellNum + 5;
+  if (subtotalCellNum == 0) {
     refTotalPrice.innerText = "0,00 €";
-    }else
-{
+  } else {
     refTotalPrice.innerText = newPrice.toFixed(2).replace(".", ",");
     refTotalPrice.innerText = refTotalPrice.innerText + " €";
-    }
+  }
 }
