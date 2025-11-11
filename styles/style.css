@@ -341,6 +341,9 @@ footer {
   background: rgb(239, 136, 50);
   border-radius: 2px;
 }
+.low-width-basket{
+  display: none;
+}
 
 @media(max-width: 715px){
 .basket-section{
@@ -353,5 +356,35 @@ footer {
 
 .main-section {
   padding-right: 16px;
+}
+
+.low-width-basket{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  margin-bottom: 16px;
+}
+
+.low-width-basket h3{
+  width: 240px;
+  background-color: rgb(239, 136, 50);
+  text-align: left;
+  border-radius: 16px 0 0 16px;
+  padding-left: 24px;
+}
+
+.low-width-basket-button{
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
+  border: none;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.low-width-basket-button img{
+  width: 40px;
 }
 }
