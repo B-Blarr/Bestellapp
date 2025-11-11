@@ -130,7 +130,7 @@ font-size: 18px;
 
 .basket-section {
   width: 300px;
-  border-left: 1px solid grey;
+  /* border-left: 1px solid grey; */
 }
 
 #basket {
@@ -214,11 +214,27 @@ display: flex;
 display: flex;
 gap: 8px;
 padding-top: 4px;
+}
+
+.basket-button{
+border: none;
+background-color: rgb(226, 220, 220);
+}
+
+.basket-button:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.basket-button img{
+width: 22px;
 
 }
 
 .dish-and-euro{
-
+display: flex;
+gap: 4px;
+align-items: center;
 
 }
 

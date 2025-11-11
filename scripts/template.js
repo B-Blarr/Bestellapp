@@ -55,15 +55,19 @@ function addDishtoBasketTemplate(type, name, price, i) {
      <span class="dish-name">${name}</span> 
      <div class="basket-second-part">
     <div class="buttons-and-counter">
-     <button onclick="minusToCounter('${type}', ${price}, ${i})" class="basket-minus-button"></button>
+     <button onclick="minusToCounter('${type}', ${price}, ${i})" class="basket-minus-button basket-button"><img src="../assets/icon/minus-button.png" alt="Minus_Button"></button>
      <span id="dish-counter-${type}-${i}"></span> 
-     <button onclick="addToCounter('${type}', ${price}, ${i})" class="basket-plus-button"></button>
+     <button onclick="addToCounter('${type}', ${price}, ${i})" class="basket-plus-button basket-button"><img src="../assets/icon/plus.png" alt="Plus_Button"></button>
     </div>
     <div class="dish-and-euro">
      <span class="dish-price-${type}-${i}">${price.toFixed(2).replace(".", ",")}</span>
      <span class="euro"> €</span>
      </div>
-     <button onclick="deleteDish('${type}',${price}, ${i})" class="delete-button"></button>   
+     <button onclick="deleteDish('${type}',${price}, ${i})" class="delete-button basket-button"><img src="../assets/icon/delete.png" alt="Delete_Button"></button></button>   
   </div>
 `;
 }
+
+/*html*/`
+  
+`
