@@ -88,6 +88,10 @@ h1 {
   color: black;
 }
 
+.menu:hover{
+  font-weight: 600;
+}
+
 .main-section {
   display: flex;
   flex-direction: column;
@@ -96,20 +100,20 @@ h1 {
   padding-top: 32px;
 }
 
-#main-dishes{
+#main-dishes {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-#desserts{
-display: flex;
+#desserts {
+  display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-#drinks{
-display: flex;
+#drinks {
+  display: flex;
   flex-direction: column;
   gap: 16px;
 }
@@ -118,14 +122,14 @@ h2 {
   font-size: 28px;
 }
 
-.rendered-dishes{
+.rendered-dishes {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-h4{
-font-size: 18px;
+h4 {
+  font-size: 18px;
 }
 
 .basket-section {
@@ -140,15 +144,15 @@ font-size: 18px;
   height: 900px;
   position: sticky;
   top: 0;
-  
 }
 
 h3 {
   font-size: 24px;
   text-align: center;
+  padding: 8px 0;
 }
 
-.dish-article{
+.dish-article {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -159,123 +163,115 @@ h3 {
   padding: 0 16px;
 }
 
-.dishes-add-button{
-background: white;
-border: none;
-cursor: pointer;
+.dishes-add-button {
+  background: white;
+  border: none;
+  cursor: pointer;
 }
 
-.dishes-add-button img{
-width: 40px;
+.dishes-add-button img {
+  width: 40px;
 }
 
-.dividing-line{
+.dividing-line {
   height: 2px;
   width: 100%;
   background-color: rgb(202, 195, 183);
 }
 
-.dividing-area{
+.dividing-area {
   min-height: 16px;
   width: 100%;
 }
 
-.food-order{
+.food-order {
   display: flex;
   flex-direction: column;
   gap: 16px;
   font-size: 16px;
 }
 
-.dish-summary{
-  
+.basket-first-part {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
 }
 
-
-
-.basket-first-part{
-display: flex;
-flex-direction: column;
-margin: 8px 12px;
-}
-
-.basket-second-part{
-display: flex;
+.basket-second-part {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.dish-name{
+.dish-name {
   font-size: 18px;
   font-weight: 500;
 }
 
-.buttons-and-counter{
-display: flex;
-gap: 8px;
-padding-top: 4px;
+.buttons-and-counter {
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
 }
 
-.basket-button{
-border: none;
-background-color: rgb(226, 220, 220);
+.basket-button {
+  border: none;
+  background-color: rgb(226, 220, 220);
 }
 
-.basket-button:hover{
+.basket-button:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
 
-.basket-button img{
-width: 22px;
-
+.basket-button img {
+  width: 20px;
 }
 
-.dish-and-euro{
-display: flex;
-gap: 4px;
-align-items: center;
-
+.dish-and-euro {
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
-.delete-button{
+.delete-button {
   margin-right: 8px;
 }
 
-.price-table{
-padding-top: 8px;
-min-height: 80px;
+.price-table {
+  padding-top: 8px;
+  min-height: 80px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
-.table-body{
-display: flex;
-flex-direction: column;
-gap: 6px;
+.table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.price-table-row{
-display: flex;
-justify-content: space-between;
-font-size: 16px;
+.price-table-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
 }
 
-#order-button{
+#order-button {
   font-size: 18px;
   font-weight: 500;
   height: 36px;
   border-radius: 16px;
-  background-color: rgb(239,136,50);
+  background-color: rgb(239, 136, 50);
   color: white;
-  margin: 8px 4px;
+  margin: 8px 8px;
   border: none;
 }
 
-#order-button:hover{
+#order-button:hover {
   cursor: pointer;
-transform: scale(1.02);
+  transform: scale(1.02);
 }
-
-
 
 footer {
   margin-top: auto;
