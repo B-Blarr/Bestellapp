@@ -1,5 +1,6 @@
 
 let subtotal = 0;
+const dialogRef = document.getElementById("confirmation-dialog");
 
 function renderAll() {
   renderDishes();
@@ -140,6 +141,13 @@ function openConfirmationDialog() {
 }
 
 function closeDialog() {
-  const dialogRef = document.getElementById("confirmation-dialog")
-  dialogRef.close();
+dialogRef.close();
 }
+
+function closeDialogClickOutside(event) {
+  if (event.target === dialogRef) {
+    dialogRef.close();
+  }
+}
+dialogRef.addEventListener("click", closeDialog);
+
