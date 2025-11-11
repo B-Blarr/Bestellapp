@@ -120,10 +120,26 @@ function updateTotalPrice() {
 
 function order() {
   const refBasket = document.getElementsByClassName("food-order")[0];
-  refBasket.innerHTML = "";
+  const refTotalPrice = document.getElementById("total-price");
   const refSubtotal = document.getElementById("subtotal");
+  if (subtotal == 0) {
+    return;
+  }else
+  {
+  refBasket.innerHTML = "";
   subtotal = 0;
   refSubtotal.innerText = "0,00 €";
-  const refTotalPrice = document.getElementById("total-price");
   refTotalPrice.innerText = "0,00 €";
+  openConfirmationDialog();
+}
+}
+
+function openConfirmationDialog() {
+  const dialogRef = document.getElementById("confirmation-dialog");
+  dialogRef.showModal();
+}
+
+function closeDialog() {
+  const dialogRef = document.getElementById("confirmation-dialog")
+  dialogRef.close();
 }

@@ -68,6 +68,3 @@ function addDishtoBasketTemplate(type, name, price, i) {
 `;
 }
 
-/*html*/`
-  
-`
