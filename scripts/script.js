@@ -117,3 +117,13 @@ function updateTotalPrice() {
     refTotalPrice.innerText = refTotalPrice.innerText + " €";
   }
 }
+
+function order() {
+  const refBasket = document.getElementsByClassName("food-order")[0];
+  refBasket.innerHTML = "";
+  const refSubtotal = document.getElementById("subtotal");
+  subtotal = 0;
+  refSubtotal.innerText = "0,00 €";
+  const refTotalPrice = document.getElementById("total-price");
+  refTotalPrice.innerText = "0,00 €";
+}
