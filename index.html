@@ -85,7 +85,7 @@
     <div class="dividing-area"></div>
     <aside class="low-width-basket">
       <h3>Warenkorb</h3>
-      <button class="low-width-basket-button"><img src="./assets/icon/basket.png" alt="Warenkorb"></button>
+      <button onclick="openBasketDialog()" class="low-width-basket-button"><img src="./assets/icon/basket.png" alt="Warenkorb"></button>
     </aside>
     <div class="section-wrapper">
       <dialog id="confirmation-dialog">
@@ -96,7 +96,30 @@
           <p>Vielen Dank für Ihre Testbestellung!</p>
         </article>
       </dialog>
-      
+      <dialog id="basket-dialog">
+            <h3>Warenkorb</h2>
+            <div class="dividing-line"></div>
+            <div id="basket-dialog-content"></div>
+            <div class="dividing-line"></div>
+            <table class="price-table">
+              <tbody class="table-body">
+              <tr class="price-table-row">
+                <td>Zwischensumme</td>
+                <td id="subtotal"></td>
+              </tr>
+              <tr class="price-table-row">
+                <td>Lieferkosten</td>
+                <td>5,00 €</td>
+              </tr>
+              <tr class="price-table-row" >
+                <td>Gesamt</td>
+                <td id="total-price"></td>
+              </tr>
+              </tbody>
+            </table>
+            <button onclick="order()" id="order-button">Bestellen</button>
+          
+      </dialog>
       <footer></footer>
     </div>
     

@@ -68,3 +68,24 @@ function addDishtoBasketTemplate(type, name, price, i) {
 `;
 }
 
+function addDishtoLowWidthBasketTemplate(type, name, price, i) {
+    if (document.getElementById(`low-basket-dish-counter-${type}-${i}`)) {
+    return "";
+  } else
+    return `
+  <div id="low-basket-dish-summary-${type}-${i}" class="low-basket-basket-first-part">
+     <span class="low-basket-dish-name">${name}</span> 
+     <div class="low-basket-second-part">
+    <div class="buttons-and-counter">
+     <button onclick="minusToCounter('${type}', ${price}, ${i})" class="basket-minus-button basket-button"><img src="../assets/icon/minus-button.png" alt="Minus_Button"></button>
+     <span id="low-basket-dish-counter-${type}-${i}"></span> 
+     <button onclick="addToCounter('${type}', ${price}, ${i})" class="basket-plus-button basket-button"><img src="../assets/icon/plus.png" alt="Plus_Button"></button>
+    </div>
+    <div class="dish-and-euro">
+     <span class="low-basket-dish-price-${type}-${i}">${price.toFixed(2).replace(".", ",")}</span>
+     <span class="euro"> €</span>
+     </div>
+     <button onclick="deleteDish('${type}',${price}, ${i})" class="delete-button basket-button"><img src="../assets/icon/delete.png" alt="Delete_Button"></button></button>   
+  </div>
+`;
+}

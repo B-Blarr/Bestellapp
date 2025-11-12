@@ -42,12 +42,24 @@ function renderDrinks() {
 function addToBasket(type, name, price, i) {
   const refOrder = document.getElementsByClassName("food-order")[0];
   refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
+
+
+  const refLowWidthBasket = document.getElementById("basket-dialog-content");
+  refLowWidthBasket.innerHTML += addDishtoLowWidthBasketTemplate(type, name, price, i);
+
+
   addToCounter(type, price, i);
 }
 
 function addToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent++;
+
+
+  const refLowWidthCounter = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
+  refLowWidthCounter.textContent++;
+
+
   calcDishPrice(type, i);
   subtotal += price;
   updateSubtotal();
@@ -57,6 +69,12 @@ function addToCounter(type, price, i) {
 function minusToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent--;
+
+
+  const refLowWidthCounter = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
+  refLowWidthCounter.textContent--;
+
+
   calcDishPrice(type, i);
   subtotal -= price;
   //   if (subtotal < 0) subtotal = 0;
@@ -151,3 +169,7 @@ function closeDialogClickOutside(event) {
 }
 dialogRef.addEventListener("click", closeDialog);
 
+function openBasketDialog() {
+  const dialogRef = document.getElementById("basket-dialog");
+  dialogRef.showModal();
+}

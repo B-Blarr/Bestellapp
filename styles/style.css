@@ -173,6 +173,10 @@ h3 {
   width: 40px;
 }
 
+.dishes-add-button img:hover{
+  transform: scale(1.2);
+}
+
 .dividing-line {
   height: 2px;
   width: 100%;
@@ -386,5 +390,27 @@ footer {
 
 .low-width-basket-button img{
   width: 40px;
+}
+
+.low-width-basket-button img:hover{
+  transform: scale(1.09);
+}
+
+#basket-dialog{
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 450px;
+  min-width: 240px;
+  border-radius: 16px;
+  background-color: rgb(239, 136, 50);
+}
+
+#basket-dialog-content{
+  width: 100%;
+
 }
 }
