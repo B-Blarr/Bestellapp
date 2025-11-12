@@ -68,6 +68,18 @@ main {
   padding-top: 32px;
 }
 
+.headline-image{
+  display: flex;
+  margin-top: 28px;
+}
+
+.headline-image img{
+  height: 240px;
+  border-radius: 16px;
+  width: 100%;                
+  max-width: 100%;            
+}
+
 h1 {
   font-size: 36px;
   padding-bottom: 24px;
