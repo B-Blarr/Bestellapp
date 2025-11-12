@@ -74,7 +74,7 @@ function addDishToDialogTemplate(type, name, price, i) {
     return "";
   } else
     return `
-  <div id="dialog-dish-summary-${type}-${i}" class="low-basket-basket-first-part">
+  <div id="dialog-dish-summary-${type}-${i}" class="dialog-basket-first-part">
      <span class="dialog-dish-name">${name}</span> 
      <div class="dialog-second-part">
     <div class="buttons-and-counter">

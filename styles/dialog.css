@@ -1,0 +1,18 @@
+#basket-dialog{
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 450px;
+  min-width: 240px;
+  border-radius: 16px;
+  background-color: rgb(239, 136, 50);
+}
+
+#basket-dialog-content{
+  width: 100%;
+
+}
+

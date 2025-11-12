@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/dialog.css">
     <script src="./scripts/db.js" defer></script>
     <script src="./scripts/script.js" defer></script>
     <script src="./scripts/template.js" defer></script>
@@ -21,12 +22,9 @@
     <div class="section-wrapper">
       <header><img src="./assets/img/logo.svg" alt="logo" /></header>
     </div>
-    <!-- Wrapper um alles inkl Warenkorb -->
     <div class="main-wrapper">
       <main>
-        <!-- Wrapper um Inhalt ohne den Warenkorb herum -->
         <div class="content">
-          <!-- Großes Bild unterm header  -->
           <aside class="image-area">
             <div class="brand-image">
               <img
@@ -41,10 +39,10 @@
           </section>
           <nav class="dish-menu">
             <a class="menu" href="#main-dishes">Neapolitanische Pizzen</a
-          ><a class="menu" href="#desserts">Desserts</a
-          ><a class="menu" href="#drinks">Getränke</a>
+            ><a class="menu" href="#desserts">Desserts</a
+            ><a class="menu" href="#drinks">Getränke</a>
           </nav>
-          
+
           <section class="main-section">
             <h2>Neapolitanische Pizzen</h2>
             <article id="main-dishes"></article>
@@ -56,25 +54,24 @@
         </div>
         <section class="basket-section">
           <div id="basket">
-            <h3>Warenkorb</h2>
+            <h3>Warenkorb</h3>
             <div class="dividing-line"></div>
-          
-              <div class="food-order"></div>
+            <div class="food-order"></div>
             <div class="dividing-line"></div>
             <table class="price-table">
               <tbody class="table-body">
-              <tr class="price-table-row">
-                <td>Zwischensumme</td>
-                <td id="subtotal"></td>
-              </tr>
-              <tr class="price-table-row">
-                <td>Lieferkosten</td>
-                <td>5,00 €</td>
-              </tr>
-              <tr class="price-table-row" >
-                <td>Gesamt</td>
-                <td id="total-price"></td>
-              </tr>
+                <tr class="price-table-row">
+                  <td>Zwischensumme</td>
+                  <td id="subtotal"></td>
+                </tr>
+                <tr class="price-table-row">
+                  <td>Lieferkosten</td>
+                  <td>5,00 €</td>
+                </tr>
+                <tr class="price-table-row">
+                  <td>Gesamt</td>
+                  <td id="total-price"></td>
+                </tr>
               </tbody>
             </table>
             <button onclick="order()" id="order-button">Bestellen</button>
@@ -83,44 +80,49 @@
       </main>
     </div>
     <div class="dividing-area"></div>
-    <aside class="low-width-basket">
+    <aside class="dialog-basket">
       <h3>Warenkorb</h3>
-      <button onclick="openBasketDialog()" class="low-width-basket-button"><img src="./assets/icon/basket.png" alt="Warenkorb"></button>
+      <button onclick="openBasketDialog()" class="dialog-basket-button">
+        <img src="./assets/icon/basket.png" alt="Warenkorb" />
+      </button>
     </aside>
     <div class="section-wrapper">
       <dialog id="confirmation-dialog">
         <article class="dialog-content">
           <div class="button-area">
-          <button onclick="closeDialog()" class="close-button"><img src="./assets/icon/close-button2.png" alt="Close_Button"></button>
+            <button onclick="closeDialog()" class="close-button">
+              <img src="./assets/icon/close-button2.png" alt="Close_Button" />
+            </button>
           </div>
           <p>Vielen Dank für Ihre Testbestellung!</p>
         </article>
       </dialog>
       <dialog id="basket-dialog">
-            <h3>Warenkorb</h2>
-            <div class="dividing-line"></div>
-            <div id="basket-dialog-content"></div>
-            <div class="dividing-line"></div>
-            <table class="price-table">
-              <tbody class="table-body">
-              <tr class="price-table-row">
-                <td>Zwischensumme</td>
-                <td id="dialog-subtotal"></td>
-              </tr>
-              <tr class="price-table-row">
-                <td>Lieferkosten</td>
-                <td>5,00 €</td>
-              </tr>
-              <tr class="price-table-row" >
-                <td>Gesamt</td>
-                <td id="dialog-total-price"></td>
-              </tr>
-              </tbody>
-            </table>
-            <button onclick="orderByDialog()" id="dialog-order-button">Bestellen</button>  
+        <h3>Warenkorb</h3>
+        <div class="dividing-line"></div>
+        <div id="basket-dialog-content"></div>
+        <div class="dividing-line"></div>
+        <table class="price-table">
+          <tbody class="table-body">
+            <tr class="price-table-row">
+              <td>Zwischensumme</td>
+              <td id="dialog-subtotal"></td>
+            </tr>
+            <tr class="price-table-row">
+              <td>Lieferkosten</td>
+              <td>5,00 €</td>
+            </tr>
+            <tr class="price-table-row">
+              <td>Gesamt</td>
+              <td id="dialog-total-price"></td>
+            </tr>
+          </tbody>
+        </table>
+        <button onclick="orderByDialog()" id="dialog-order-button">
+          Bestellen
+        </button>
       </dialog>
       <footer></footer>
     </div>
-    
   </body>
 </html>
