@@ -80,9 +80,9 @@
       </main>
     </div>
     <div class="dividing-area"></div>
-    <aside class="dialog-basket">
+    <aside class="small-screen-basket">
       <h3>Warenkorb</h3>
-      <button onclick="openBasketDialog()" class="dialog-basket-button">
+      <button onclick="openBasketDialog()" class="small-screen-basket-button">
         <img src="./assets/icon/basket.png" alt="Warenkorb" />
       </button>
     </aside>
@@ -98,10 +98,12 @@
         </article>
       </dialog>
       <dialog id="basket-dialog">
+        <article class="dialog-wrap">
         <h3>Warenkorb</h3>
         <div class="dividing-line"></div>
         <div id="basket-dialog-content"></div>
         <div class="dividing-line"></div>
+        <section class="bill-area">
         <table class="price-table">
           <tbody class="table-body">
             <tr class="price-table-row">
@@ -121,6 +123,8 @@
         <button onclick="orderByDialog()" id="dialog-order-button">
           Bestellen
         </button>
+        </section>
+        </article>
       </dialog>
       <footer></footer>
     </div>
