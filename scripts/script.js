@@ -181,28 +181,36 @@ function updateTotalPriceDialogBasket() {
 
 function order() {
   const refBasket = document.getElementsByClassName("food-order")[0];
+  const refBasketDialog = document.getElementById("basket-dialog-content");
   const refTotalPrice = document.getElementById("total-price");
+  const refTotalPriceDialog = document.getElementById("dialog-total-price");
   const refSubtotal = document.getElementById("subtotal");
+  const refSubtotalDialog = document.getElementById("dialog-subtotal");
   if (subtotal == 0) {
     return;
   }else
   {
   refBasket.innerHTML = "";
+  refBasketDialog.innerHTML = "";
   subtotal = 0;
   refSubtotal.innerText = "0,00 €";
+  refSubtotalDialog.innerText = "0,00 €";
   refTotalPrice.innerText = "0,00 €";
+  refTotalPriceDialog.innerText = "0,00 €";
   openConfirmationDialog();
   }
 }
 
 function orderByDialog() {
-  const refBasket = document.getElementById("basket-dialog-content");
+  const refBasketDialog = document.getElementById("basket-dialog-content");
+  const refBasket = document.getElementsByClassName("food-order")[0];
   const refTotalPrice = document.getElementById("dialog-total-price");
   const refSubtotal = document.getElementById("dialog-subtotal");
   if (subtotal == 0) {
     return;
   }else
   {
+  refBasketDialog.innerHTML = "";
   refBasket.innerHTML = "";
   subtotal = 0;
   refSubtotal.innerText = "0,00 €";
