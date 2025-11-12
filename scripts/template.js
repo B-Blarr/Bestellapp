@@ -68,6 +68,7 @@ function addDishtoBasketTemplate(type, name, price, i) {
 `;
 }
 
+// Basket Low Width
 function addDishtoLowWidthBasketTemplate(type, name, price, i) {
     if (document.getElementById(`low-basket-dish-counter-${type}-${i}`)) {
     return "";
@@ -85,7 +86,7 @@ function addDishtoLowWidthBasketTemplate(type, name, price, i) {
      <span class="low-basket-dish-price-${type}-${i}">${price.toFixed(2).replace(".", ",")}</span>
      <span class="euro"> €</span>
      </div>
-     <button onclick="deleteDish('${type}',${price}, ${i})" class="delete-button basket-button"><img src="../assets/icon/delete.png" alt="Delete_Button"></button></button>   
+     <button onclick="deleteDishDialogBasket('${type}',${price}, ${i})" class="delete-button basket-button"><img src="../assets/icon/delete.png" alt="Delete_Button"></button></button>   
   </div>
 `;
 }

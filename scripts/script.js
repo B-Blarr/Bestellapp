@@ -16,6 +16,14 @@ function updateSubtotal() {
   } else {
     subtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
   }
+
+// Basket Low Width
+  const lowWidthSubtotalCell = document.getElementById("dialog-subtotal");
+  if (subtotal <= 0) {
+    lowWidthSubtotalCell.innerText = "0,00 €";
+  } else {
+    lowWidthSubtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
+  }
 }
 
 function renderDishes() {
@@ -43,7 +51,7 @@ function addToBasket(type, name, price, i) {
   const refOrder = document.getElementsByClassName("food-order")[0];
   refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
 
-
+// Basket Low Width
   const refLowWidthBasket = document.getElementById("basket-dialog-content");
   refLowWidthBasket.innerHTML += addDishtoLowWidthBasketTemplate(type, name, price, i);
 
@@ -55,7 +63,7 @@ function addToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent++;
 
-
+// Basket Low Width
   const refLowWidthCounter = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
   refLowWidthCounter.textContent++;
 
@@ -70,7 +78,7 @@ function minusToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent--;
 
-
+// Basket Low Width
   const refLowWidthCounter = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
   refLowWidthCounter.textContent--;
 
@@ -102,6 +110,26 @@ function deleteDish(type, price, i) {
     dishSummary.remove();
   }
 }
+
+// Basket Low Width
+function deleteDishDialogBasket(type, price, i) {
+   const counterRef = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
+  let count = 0;
+  if (counterRef) {
+    count = Number(counterRef.innerText);
+  }
+  if (count > 0) {
+    subtotal -= count * price;
+    // if (subtotal < 0) subtotal = 0;
+    updateSubtotal();
+    updateTotalPrice();
+  }
+  const dishSummary = document.getElementById(`low-basket-dish-summary-${type}-${i}`);
+  if (dishSummary) {
+    dishSummary.remove();
+  }
+}
+
 
 function calcDishPrice(type, i) {
   const counterRef = document.getElementById(`dish-counter-${type}-${i}`).innerText;
@@ -135,12 +163,43 @@ function updateTotalPrice() {
     refTotalPrice.innerText = newPrice.toFixed(2).replace(".", ",");
     refTotalPrice.innerText = refTotalPrice.innerText + " €";
   }
+  updateTotalPriceDialogBasket();
+}
+
+// Basket Low Width
+function updateTotalPriceDialogBasket() {
+  const refTotalPrice = document.getElementById("dialog-total-price");
+  const subtotalCell = document.getElementById("dialog-subtotal").innerText.replace(",", ".");
+  const subtotalCellNum = Number.parseFloat(subtotalCell);
+  const newPrice = subtotalCellNum + 5;
+  if (subtotalCellNum == 0) {
+    refTotalPrice.innerText = "0,00 €";
+  } else {
+    refTotalPrice.innerText = newPrice.toFixed(2).replace(".", ",");
+    refTotalPrice.innerText = refTotalPrice.innerText + " €";
+  }
 }
 
 function order() {
   const refBasket = document.getElementsByClassName("food-order")[0];
   const refTotalPrice = document.getElementById("total-price");
   const refSubtotal = document.getElementById("subtotal");
+  if (subtotal == 0) {
+    return;
+  }else
+  {
+  refBasket.innerHTML = "";
+  subtotal = 0;
+  refSubtotal.innerText = "0,00 €";
+  refTotalPrice.innerText = "0,00 €";
+  openConfirmationDialog();
+}
+}
+
+function orderByDialog() {
+  const refBasket = document.getElementById("basket-dialog-content");
+  const refTotalPrice = document.getElementById("dialog-total-price");
+  const refSubtotal = document.getElementById("dialog-subtotal");
   if (subtotal == 0) {
     return;
   }else
