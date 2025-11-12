@@ -1,5 +1,4 @@
 /* Basket Dialog */
-
 #basket-dialog {
   position: fixed;
   margin: 0;
@@ -52,7 +51,6 @@
 }
 
 /* Confirmation Dialog */
-
 #confirmation-dialog {
   position: fixed;
   margin: 0;
