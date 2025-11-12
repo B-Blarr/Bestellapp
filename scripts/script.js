@@ -1,29 +1,13 @@
 
 let subtotal = 0;
 const dialogRef = document.getElementById("confirmation-dialog");
+const basketDialogRef = document.getElementById("basket-dialog");
 
 function renderAll() {
   renderDishes();
   renderDesserts();
   renderDrinks();
   updateSubtotal();
-}
-
-function updateSubtotal() {
-  const subtotalCell = document.getElementById("subtotal");
-  if (subtotal <= 0) {
-    subtotalCell.innerText = "0,00 €";
-  } else {
-    subtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
-  }
-
-// Basket Low Width
-  const lowWidthSubtotalCell = document.getElementById("dialog-subtotal");
-  if (subtotal <= 0) {
-    lowWidthSubtotalCell.innerText = "0,00 €";
-  } else {
-    lowWidthSubtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
-  }
 }
 
 function renderDishes() {
@@ -50,24 +34,16 @@ function renderDrinks() {
 function addToBasket(type, name, price, i) {
   const refOrder = document.getElementsByClassName("food-order")[0];
   refOrder.innerHTML += addDishtoBasketTemplate(type, name, price, i);
-
-// Basket Low Width
   const refLowWidthBasket = document.getElementById("basket-dialog-content");
-  refLowWidthBasket.innerHTML += addDishtoLowWidthBasketTemplate(type, name, price, i);
-
-
+  refLowWidthBasket.innerHTML += addDishToDialogTemplate(type, name, price, i);
   addToCounter(type, price, i);
 }
 
 function addToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent++;
-
-// Basket Low Width
-  const refLowWidthCounter = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
+  const refLowWidthCounter = document.getElementById(`dialog-dish-counter-${type}-${i}`);
   refLowWidthCounter.textContent++;
-
-
   calcDishPrice(type, i);
   subtotal += price;
   updateSubtotal();
@@ -77,17 +53,13 @@ function addToCounter(type, price, i) {
 function minusToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent--;
-
-// Basket Low Width
-  const refLowWidthCounter = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
+  const refLowWidthCounter = document.getElementById(`dialog-dish-counter-${type}-${i}`);
   refLowWidthCounter.textContent--;
-
-
   calcDishPrice(type, i);
   subtotal -= price;
-  //   if (subtotal < 0) subtotal = 0;
   updateSubtotal();
   updateTotalPrice();
+
   if (refCounter.textContent == 0) {
     deleteDish(type, price, i);
   }
@@ -101,7 +73,6 @@ function deleteDish(type, price, i) {
   }
   if (count > 0) {
     subtotal -= count * price;
-    // if (subtotal < 0) subtotal = 0;
     updateSubtotal();
     updateTotalPrice();
   }
@@ -109,27 +80,33 @@ function deleteDish(type, price, i) {
   if (dishSummary) {
     dishSummary.remove();
   }
+const dishSummaryDialog = document.getElementById(`dialog-dish-summary-${type}-${i}`);
+  if (dishSummaryDialog) {
+    dishSummaryDialog.remove();
+  }
 }
 
 // Basket Low Width
 function deleteDishDialogBasket(type, price, i) {
-   const counterRef = document.getElementById(`low-basket-dish-counter-${type}-${i}`);
+   const counterRef = document.getElementById(`dialog-dish-counter-${type}-${i}`);
   let count = 0;
   if (counterRef) {
     count = Number(counterRef.innerText);
   }
   if (count > 0) {
     subtotal -= count * price;
-    // if (subtotal < 0) subtotal = 0;
     updateSubtotal();
     updateTotalPrice();
   }
-  const dishSummary = document.getElementById(`low-basket-dish-summary-${type}-${i}`);
+  const dishSummaryDialog = document.getElementById(`dialog-dish-summary-${type}-${i}`);
+  if (dishSummaryDialog) {
+    dishSummaryDialog.remove();
+  }
+  const dishSummary = document.getElementById(`dish-summary-${type}-${i}`);
   if (dishSummary) {
     dishSummary.remove();
   }
 }
-
 
 function calcDishPrice(type, i) {
   const counterRef = document.getElementById(`dish-counter-${type}-${i}`).innerText;
@@ -139,6 +116,13 @@ function calcDishPrice(type, i) {
   const priceForOne = getPrice(type, i);
   const calcPrice = counterRefNumber * priceForOne;
   multipliedPriceRef.innerText += calcPrice.toFixed(2).replace(".", ",");
+  const dialogCounterRef = document.getElementById(`dialog-dish-counter-${type}-${i}`).innerText;
+  const dialogCounterRefNumber = Number.parseFloat(dialogCounterRef);
+  let multipliedPriceRefDialog = document.getElementsByClassName(`dialog-dish-price-${type}-${i}`)[0];
+  multipliedPriceRefDialog.innerText = "";
+  const dialogPriceForOne = getPrice(type, i);
+  const calcDialogPrice = dialogCounterRefNumber * dialogPriceForOne;
+  multipliedPriceRefDialog.innerText += calcDialogPrice.toFixed(2).replace(".", ",");
 }
 
 function getPrice(type, i) {
@@ -150,6 +134,21 @@ function getCategoryKey(type) {
   if (type === "pizza") return "Neapolitanische Pizzen";
   if (type === "dessert") return "Desserts";
   if (type === "drinks") return "Getränke";
+}
+
+function updateSubtotal() {
+  const subtotalCell = document.getElementById("subtotal");
+  if (subtotal <= 0) {
+    subtotalCell.innerText = "0,00 €";
+  } else {
+    subtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
+  }
+  const dialogSubtotalCell = document.getElementById("dialog-subtotal");
+  if (subtotal <= 0) {
+    dialogSubtotalCell.innerText = "0,00 €";
+  } else {
+    dialogSubtotalCell.innerText = subtotal.toFixed(2).replace(".", ",") + " €";
+  }
 }
 
 function updateTotalPrice() {
@@ -193,7 +192,7 @@ function order() {
   refSubtotal.innerText = "0,00 €";
   refTotalPrice.innerText = "0,00 €";
   openConfirmationDialog();
-}
+  }
 }
 
 function orderByDialog() {
@@ -229,6 +228,14 @@ function closeDialogClickOutside(event) {
 dialogRef.addEventListener("click", closeDialog);
 
 function openBasketDialog() {
-  const dialogRef = document.getElementById("basket-dialog");
-  dialogRef.showModal();
+  const basketDialogRef = document.getElementById("basket-dialog");
+  basketDialogRef.showModal();
 }
+
+function closeBasketDialog() {
+  if (event.target === basketDialogRef) {
+    basketDialogRef.close();
+  }
+}
+basketDialogRef.addEventListener("click", closeBasketDialog);
+
