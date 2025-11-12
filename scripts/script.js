@@ -1,4 +1,3 @@
-
 let subtotal = 0;
 const dialogRef = document.getElementById("confirmation-dialog");
 const basketDialogRef = document.getElementById("basket-dialog");
@@ -67,12 +66,12 @@ function minusToCounter(type, price, i) {
 
 function deleteDish(type, price, i) {
   const counterRef = document.getElementById(`dish-counter-${type}-${i}`);
-  let count = 0;
+  let counter = 0;
   if (counterRef) {
-    count = Number(counterRef.innerText);
+    counter = Number(counterRef.innerText);
   }
-  if (count > 0) {
-    subtotal -= count * price;
+  if (counter > 0) {
+    subtotal -= counter * price;
     updateSubtotal();
     updateTotalPrice();
   }
@@ -80,21 +79,20 @@ function deleteDish(type, price, i) {
   if (dishSummary) {
     dishSummary.remove();
   }
-const dishSummaryDialog = document.getElementById(`dialog-dish-summary-${type}-${i}`);
+  const dishSummaryDialog = document.getElementById(`dialog-dish-summary-${type}-${i}`);
   if (dishSummaryDialog) {
     dishSummaryDialog.remove();
   }
 }
 
-// Basket Low Width
 function deleteDishDialogBasket(type, price, i) {
-   const counterRef = document.getElementById(`dialog-dish-counter-${type}-${i}`);
-  let count = 0;
+  const counterRef = document.getElementById(`dialog-dish-counter-${type}-${i}`);
+  let counter = 0;
   if (counterRef) {
     count = Number(counterRef.innerText);
   }
-  if (count > 0) {
-    subtotal -= count * price;
+  if (counter > 0) {
+    subtotal -= counter * price;
     updateSubtotal();
     updateTotalPrice();
   }
@@ -165,7 +163,6 @@ function updateTotalPrice() {
   updateTotalPriceDialogBasket();
 }
 
-// Basket Low Width
 function updateTotalPriceDialogBasket() {
   const refTotalPrice = document.getElementById("dialog-total-price");
   const subtotalCell = document.getElementById("dialog-subtotal").innerText.replace(",", ".");
@@ -188,35 +185,16 @@ function order() {
   const refSubtotalDialog = document.getElementById("dialog-subtotal");
   if (subtotal == 0) {
     return;
-  }else
-  {
-  refBasket.innerHTML = "";
-  refBasketDialog.innerHTML = "";
-  subtotal = 0;
-  refSubtotal.innerText = "0,00 €";
-  refSubtotalDialog.innerText = "0,00 €";
-  refTotalPrice.innerText = "0,00 €";
-  refTotalPriceDialog.innerText = "0,00 €";
-  openConfirmationDialog();
+  } else {
+    refBasket.innerHTML = "";
+    refBasketDialog.innerHTML = "";
+    subtotal = 0;
+    refSubtotal.innerText = "0,00 €";
+    refSubtotalDialog.innerText = "0,00 €";
+    refTotalPrice.innerText = "0,00 €";
+    refTotalPriceDialog.innerText = "0,00 €";
+    openConfirmationDialog();
   }
-}
-
-function orderByDialog() {
-  const refBasketDialog = document.getElementById("basket-dialog-content");
-  const refBasket = document.getElementsByClassName("food-order")[0];
-  const refTotalPrice = document.getElementById("dialog-total-price");
-  const refSubtotal = document.getElementById("dialog-subtotal");
-  if (subtotal == 0) {
-    return;
-  }else
-  {
-  refBasketDialog.innerHTML = "";
-  refBasket.innerHTML = "";
-  subtotal = 0;
-  refSubtotal.innerText = "0,00 €";
-  refTotalPrice.innerText = "0,00 €";
-  openConfirmationDialog();
-}
 }
 
 function openConfirmationDialog() {
@@ -225,7 +203,7 @@ function openConfirmationDialog() {
 }
 
 function closeDialog() {
-dialogRef.close();
+  dialogRef.close();
 }
 
 function closeDialogClickOutside(event) {
@@ -246,4 +224,3 @@ function closeBasketDialog() {
   }
 }
 basketDialogRef.addEventListener("click", closeBasketDialog);
-

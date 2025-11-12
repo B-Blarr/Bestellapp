@@ -1,49 +1,46 @@
 function renderDishesTemplate(i) {
-  return `<section class="dish-article">
-           <div class="rendered-dishes">
-            <h4>${dishes[0]["Neapolitanische Pizzen"][i].name}</h4>
-            <p>${dishes[0]["Neapolitanische Pizzen"][i].price.toFixed(2)} €</p>
-            <p>${dishes[0]["Neapolitanische Pizzen"][i].description}<p/>
-           </div>
-           <div>
-            <button onclick="addToBasket('pizza', '${
-              dishes[0]["Neapolitanische Pizzen"][i].name
-            }', ${dishes[0]["Neapolitanische Pizzen"][i].price}, ${i})" 
-            class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
-           </div>
-          </section>`;
+  return `
+  <section class="dish-article">
+    <div class="rendered-dishes">
+      <h4>${dishes[0]["Neapolitanische Pizzen"][i].name}</h4>
+      <p>${dishes[0]["Neapolitanische Pizzen"][i].price.toFixed(2)} €</p>
+      <p>${dishes[0]["Neapolitanische Pizzen"][i].description}<p/>
+    </div>
+    <div>
+      <button onclick="addToBasket('pizza', '${dishes[0]["Neapolitanische Pizzen"][i].name}', ${dishes[0]["Neapolitanische Pizzen"][i].price}, ${i})" 
+      class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
+    </div>
+  </section>`;
 }
 
 function renderDessertsTemplate(i) {
-  return `<section class="dish-article">
-            <div class="rendered-dishes"> 
-             <h4>${dishes[0].Desserts[i].name}</h4>
-             <p>${dishes[0].Desserts[i].price.toFixed(2)} €</p>
-             <p>${dishes[0].Desserts[i].description}<p/>
-            </div>
-            <div>
-             <button onclick="addToBasket('dessert', '${
-               dishes[0].Desserts[i].name
-             }', ${dishes[0].Desserts[i].price}, ${i})" 
-             class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
-            </div>
-          </section>`;
+  return `
+  <section class="dish-article">
+    <div class="rendered-dishes"> 
+      <h4>${dishes[0].Desserts[i].name}</h4>
+      <p>${dishes[0].Desserts[i].price.toFixed(2)} €</p>
+      <p>${dishes[0].Desserts[i].description}<p/>
+    </div>
+     <div>
+      <button onclick="addToBasket('dessert', '${dishes[0].Desserts[i].name}', ${dishes[0].Desserts[i].price}, ${i})" 
+      class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
+    </div>
+  </section>`;
 }
 
 function renderDrinksTemplate(i) {
-  return `<section class="dish-article">
-           <div class="rendered-dishes"> 
-            <h4>${dishes[0].Getränke[i].name}</h4>
-            <p>${dishes[0].Getränke[i].price.toFixed(2)} €</p>
-            <p>${dishes[0].Getränke[i].description}<p/>
-           </div>
-           <div>
-            <button onclick="addToBasket('drinks', '${
-              dishes[0].Getränke[i].name
-            }', ${dishes[0].Getränke[i].price}, ${i} )" 
-            class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
-           </div>
-          </section>`;
+  return `
+  <section class="dish-article">
+   <div class="rendered-dishes"> 
+    <h4>${dishes[0].Getränke[i].name}</h4>
+    <p>${dishes[0].Getränke[i].price.toFixed(2)} €</p>
+    <p>${dishes[0].Getränke[i].description}<p/>
+   </div>
+   <div>
+     <button onclick="addToBasket('drinks', '${dishes[0].Getränke[i].name}', ${dishes[0].Getränke[i].price}, ${i} )" 
+     class="dishes-add-button"><img src="../assets/icon/plus.png" alt="Hinzufügen_Button"></button>
+   </div>
+  </section>`;
 }
 
 function addDishtoBasketTemplate(type, name, price, i) {
@@ -62,18 +59,17 @@ function addDishtoBasketTemplate(type, name, price, i) {
     <div class="dish-and-euro">
      <span class="dish-price-${type}-${i}">${price.toFixed(2).replace(".", ",")}</span>
      <span class="euro"> €</span>
-     </div>
+    </div>
      <button onclick="deleteDish('${type}',${price}, ${i})" class="delete-button basket-button"><img src="../assets/icon/delete.png" alt="Delete_Button"></button></button>   
   </div>
 `;
 }
 
-// Basket Low Width
 function addDishToDialogTemplate(type, name, price, i) {
-    if (document.getElementById(`dialog-dish-counter-${type}-${i}`)) {
-    return "";
+  if (document.getElementById(`dialog-dish-counter-${type}-${i}`)) {
+   return "";
   } else
-    return `
+   return `
   <div id="dialog-dish-summary-${type}-${i}" class="dialog-basket-first-part">
      <span class="dialog-dish-name">${name}</span> 
      <div class="dialog-second-part">
@@ -85,7 +81,7 @@ function addDishToDialogTemplate(type, name, price, i) {
     <div class="dish-and-euro">
      <span class="dialog-dish-price-${type}-${i}">${price.toFixed(2).replace(".", ",")}</span>
      <span class="euro"> €</span>
-     </div>
+    </div>
      <button onclick="deleteDishDialogBasket('${type}',${price}, ${i})" class="delete-button basket-button"><img src="../assets/icon/delete.png" alt="Delete_Button"></button></button>   
   </div>
 `;
