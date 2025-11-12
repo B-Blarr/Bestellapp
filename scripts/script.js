@@ -12,21 +12,22 @@ function renderAll() {
 function renderDishes() {
   const refArticle = document.getElementById("main-dishes");
   for (let i = 0; i < dishes[0]["Neapolitanische Pizzen"].length; i++) {
-    refArticle.innerHTML += renderDishesTemplate(i).replace(".", ",");
+    refArticle.innerHTML += renderDishesTemplate(i);
   }
 }
+// refArticle.innerHTML += renderDishesTemplate(i).replace(".", ",");
 
 function renderDesserts() {
   const refArticle = document.getElementById("desserts");
   for (let i = 0; i < dishes[0].Desserts.length; i++) {
-    refArticle.innerHTML += renderDessertsTemplate(i).replace(".", ",");
+    refArticle.innerHTML += renderDessertsTemplate(i);
   }
 }
 
 function renderDrinks() {
   const refArticle = document.getElementById("drinks");
   for (let i = 0; i < dishes[0].Getränke.length; i++) {
-    refArticle.innerHTML += renderDrinksTemplate(i).replace(".", ",");
+    refArticle.innerHTML += renderDrinksTemplate(i);
   }
 }
 
