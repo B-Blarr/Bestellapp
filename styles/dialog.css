@@ -69,10 +69,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-height: 210px;
+  height: 210px;
   min-width: 380px;
   border-radius: 16px;
   background-color: rgb(239, 136, 50);
+}
+
+#confirmation-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #confirmation-dialog::backdrop {
@@ -82,10 +89,11 @@
 
 .dialog-content {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   flex-direction: column;
+  flex:1;
 }
 
 #confirmation-dialog p {
@@ -99,7 +107,6 @@
   justify-content: flex-end;
   align-items: flex-start;
   width: 100%;
-  height: 100%;
 }
 
 .close-button {

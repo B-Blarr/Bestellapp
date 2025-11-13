@@ -89,7 +89,7 @@ function deleteDishDialogBasket(type, price, i) {
   const counterRef = document.getElementById(`dialog-dish-counter-${type}-${i}`);
   let counter = 0;
   if (counterRef) {
-    count = Number(counterRef.innerText);
+    counter = Number(counterRef.innerText);
   }
   if (counter > 0) {
     subtotal -= counter * price;
@@ -206,21 +206,19 @@ function closeDialog() {
   dialogRef.close();
 }
 
-function closeDialogClickOutside(event) {
-  if (event.target === dialogRef) {
-    dialogRef.close();
-  }
-}
-dialogRef.addEventListener("click", closeDialog);
-
 function openBasketDialog() {
   const basketDialogRef = document.getElementById("basket-dialog");
   basketDialogRef.showModal();
 }
 
-function closeBasketDialog() {
+dialogRef.addEventListener('click', function (event) {
+  if (event.target === dialogRef) {
+    dialogRef.close();
+  }
+});
+
+basketDialogRef.addEventListener('click', function (event) {
   if (event.target === basketDialogRef) {
     basketDialogRef.close();
   }
-}
-basketDialogRef.addEventListener("click", closeBasketDialog);
+});
