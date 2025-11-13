@@ -20,7 +20,7 @@ const dishes = [
             {
                 "name": "Thunfisch",
                 "price": 8.90,
-                "description": "mit Tomatensoße, Thunfisch, roten Zwiebeln, Fior di Latte, Parmesan, Rucola, Basilikum und Kirschtomaten"
+                "description": "mit Tomatensoße, Thunfisch, roten Zwiebeln, Fior di Latte, Parmesan, Basilikum und Kirschtomaten"
             },
             {
                 "name": "Napoli",
