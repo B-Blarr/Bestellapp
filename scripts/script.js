@@ -3,16 +3,16 @@ const dialogRef = document.getElementById("confirmation-dialog");
 const basketDialogRef = document.getElementById("basket-dialog");
 
 function renderAll() {
-  renderDishes();
+  renderPizza();
   renderDesserts();
   renderDrinks();
   updateSubtotal();
 }
 
-function renderDishes() {
+function renderPizza() {
   const refArticle = document.getElementById("main-dishes");
   for (let i = 0; i < dishes[0]["Neapolitanische Pizzen"].length; i++) {
-    refArticle.innerHTML += renderDishesTemplate(i).replace(".", ",");
+    refArticle.innerHTML += renderPizzaTemplate(i).replace(".", ",");
   }
 }
 
@@ -38,6 +38,11 @@ function addToBasket(type, name, price, i) {
   addToCounter(type, price, i);
 }
 
+function updatePrice() {
+  updateSubtotal();
+  updateTotalPrice();
+}
+
 function addToCounter(type, price, i) {
   const refCounter = document.getElementById(`dish-counter-${type}-${i}`);
   refCounter.textContent++;
@@ -45,8 +50,7 @@ function addToCounter(type, price, i) {
   refLowWidthCounter.textContent++;
   calcDishPrice(type, i);
   subtotal += price;
-  updateSubtotal();
-  updateTotalPrice();
+  updatePrice()
 }
 
 function minusToCounter(type, price, i) {
@@ -56,8 +60,7 @@ function minusToCounter(type, price, i) {
   refLowWidthCounter.textContent--;
   calcDishPrice(type, i);
   subtotal -= price;
-  updateSubtotal();
-  updateTotalPrice();
+  updatePrice();
 
   if (refCounter.textContent == 0) {
     deleteDish(type, price, i);
@@ -72,8 +75,7 @@ function deleteDish(type, price, i) {
   }
   if (counter > 0) {
     subtotal -= counter * price;
-    updateSubtotal();
-    updateTotalPrice();
+    updatePrice();
   }
   const dishSummary = document.getElementById(`dish-summary-${type}-${i}`);
   if (dishSummary) {
@@ -93,8 +95,7 @@ function deleteDishDialogBasket(type, price, i) {
   }
   if (counter > 0) {
     subtotal -= counter * price;
-    updateSubtotal();
-    updateTotalPrice();
+   updatePrice();
   }
   const dishSummaryDialog = document.getElementById(`dialog-dish-summary-${type}-${i}`);
   if (dishSummaryDialog) {
@@ -198,7 +199,6 @@ function order() {
 }
 
 function openConfirmationDialog() {
-  const dialogRef = document.getElementById("confirmation-dialog");
   dialogRef.showModal();
 }
 
@@ -207,7 +207,6 @@ function closeDialog() {
 }
 
 function openBasketDialog() {
-  const basketDialogRef = document.getElementById("basket-dialog");
   basketDialogRef.showModal();
 }
 

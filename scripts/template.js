@@ -1,4 +1,4 @@
-function renderDishesTemplate(i) {
+function renderPizzaTemplate(i) {
   return `
   <section class="dish-article">
     <div class="rendered-dishes">

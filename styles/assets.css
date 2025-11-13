@@ -45,6 +45,7 @@
 
 #order-button:hover {
   cursor: pointer;
+  background-color: rgb(67, 156, 71);
   transition: 140ms ease-in-out;
   transform: scale(1.02);
 }
