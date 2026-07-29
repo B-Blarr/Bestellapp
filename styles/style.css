@@ -281,7 +281,7 @@ footer {
 @media (max-width: 760px) {
   .basket-section {
     display: none;
-    width: 0;
+    /* width: 0; */
   }
 
   .content {
