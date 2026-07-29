@@ -1,21 +1,35 @@
-# 🍕 BestellApp
+# BestellApp
 
-A food ordering app concept inspired by delivery platforms like Lieferando, built with vanilla JavaScript.
+A food ordering interface inspired by delivery platforms like Lieferando,
+built without any framework.
 
-👉 **[Open the App](https://benjaminblarr.de/bestellapp/)**
+👉 **[Open the app](https://benjaminblarr.de/bestellapp/)**
 
-![BestellApp Preview](assets/img/preview.png)
+![BestellApp Preview](assets/preview.png)
 
-## 📌 About
-BestellApp is a fully functional food ordering interface where users can browse a restaurant menu, add items to their cart and see a live order summary. Built as a practice project to deepen skills in DOM manipulation and dynamic rendering.
+## About
 
-## ✨ Features
-- Dynamic menu rendering from JavaScript data objects
-- Add, remove and update items in the shopping cart
-- Live cart summary with subtotal, delivery costs and total
-- Clean and responsive UI
+The menu is rendered from a JavaScript data object. Items can be added to the
+cart, changed in quantity or removed, and the summary recalculates subtotal,
+delivery cost and total on every change.
 
-## 🛠️ Technologies
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+The whole state lives in plain objects. Every change has to be written back
+into the DOM by hand, in the right order and in every place where the same
+value appears twice. That is the part a framework would take off your hands.
+
+## Features
+
+- Menu rendered dynamically from a data object
+- Add, remove and change quantities in the cart
+- Live summary with subtotal, delivery cost and total
+- Separate layout for mobile and desktop
+
+## Built with
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo" />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo" />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo" />
+</p>
