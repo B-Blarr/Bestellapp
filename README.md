@@ -2,7 +2,7 @@
 
 A food ordering app concept inspired by delivery platforms like Lieferando, built with vanilla JavaScript.
 
-👉 **[Open the App](https://benjaminblarr.dev/bestellapp/)**
+👉 **[Open the App](https://benjaminblarr.de/bestellapp/)**
 
 ![BestellApp Preview](assets/img/preview.png)
 
