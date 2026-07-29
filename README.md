@@ -5,7 +5,8 @@ built without any framework.
 
 👉 **[Open the app](https://benjaminblarr.de/bestellapp/)**
 
-![BestellApp Preview](assets/preview.png)
+![BestellApp Preview](assets/img/preview.png)
+
 
 ## About
 
